@@ -1,0 +1,21 @@
+{
+  "name": "kams",
+  "version": "1.0.0",
+  "description": "web-kit installation pack",
+  "main": "index.js",
+  "scripts": {
+    "build": "build"
+  },
+  "keywords": [
+    "react",
+    "next",
+    "astro",
+    "svelte"
+  ],
+  "author": "doesnots",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^12.0.0",
+    "inquirer": "^9.2.14"
+  }
+}
