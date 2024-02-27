@@ -25,13 +25,13 @@ func main() {
 
 	switch framework {
 	case "1":
-		cmd = exec.Command("npx", "create-react-app", "my-app")
+		cmd = exec.Command("npx", "create-react-app@latest", "my-app")
 	case "2":
-		cmd = exec.Command("npx", "create-next-app", "my-app")
+		cmd = exec.Command("npx", "create-next-app@latest", "my-app")
 	case "3":
-		cmd = exec.Command("npx", "degit", "sveltejs/template", "my-app")
+		cmd = exec.Command("npm", "create", "svelte@latest", "my-app")
 	case "4":
-		cmd = exec.Command("npm", "init", "astro")
+		cmd = exec.Command("npm", "create", "astro@latest")
 	default:
 		log.Fatal("Invalid option")
 	}
