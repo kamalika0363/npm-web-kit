@@ -57,7 +57,7 @@ func main() {
 		log.Fatal("Invalid option")
 	}
 
-
+	fmt.Println("Installing your framework...")
 	err := cmd.Run()
 	if err != nil {
 		log.Fatal(err)
@@ -76,6 +76,8 @@ func main() {
 	tailwind = strings.TrimSpace(tailwind)
 
 	if tailwind == "yes" {
+		cmd = exec.Command("cd", projectName)
+		err = cmd.Run()
 		cmd = exec.Command("npm", "install", "-D", "tailwindcss@latest", "postcss@latest", "autoprefixer@latest")
 		err = cmd.Run()
 		if err != nil {
