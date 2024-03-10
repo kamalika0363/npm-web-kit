@@ -71,11 +71,11 @@ func main() {
 		}
 	}
 
-	fmt.Println("Do you want to use Tailwind CSS? (yes/no)")
+	fmt.Println("Do you want to use Tailwind CSS? (y/n)")
 	tailwind, _ := reader.ReadString('\n')
 	tailwind = strings.TrimSpace(tailwind)
 
-	if tailwind == "yes" {
+	if tailwind == "y" {
 		cmd = exec.Command("cd", projectName)
 		err = cmd.Run()
 		cmd = exec.Command("npm", "install", "-D", "tailwindcss@latest", "postcss@latest", "autoprefixer@latest")
