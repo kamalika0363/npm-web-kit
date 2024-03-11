@@ -85,16 +85,51 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-
-		cmd = exec.Command("npx", "tailwindcss", "init")
+	
+		cmd = exec.Command("npx", "tailwindcss", "init", "-p")
 		err = cmd.Run()
 		if err != nil {
 			log.Fatal(err)
 		}
+		// Create Important.md file and write the steps
+		file, err := os.Create("Important.md")
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+	
+		steps := `## Configure your template paths
+> Add the paths to all of your template files in your tailwind.config.js file.	
+
+/** @type {import('tailwindcss').Config} */    
+module.exports = {    
+content: ["./src/**/*.{html,js}"],  
+theme: {  
+extend: {},  
+},  
+plugins: [],  
+}  
+				
+## Add the Tailwind directives to your CSS  
+> Add the @tailwind directives for each of Tailwind’s layers to your main.css file.  
+			
+@tailwind base;  
+@tailwind components;  
+@tailwind utilities;  
+		
+## Now you can start using Tailwind CSS!!  
+	`
+		_, err = file.WriteString(steps)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("Read the Important.md file for further steps")
 		os.Chdir("..")
 	}
+	
 
 	fmt.Println("Setup complete!")
+	fmt.Println("Opening your project in Visual Studio Code...")
 	cmd = exec.Command("code", projectName)
 	err = cmd.Run()
 }
