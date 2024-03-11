@@ -45,6 +45,8 @@ func main() {
 	case "3":
 		cmd = exec.Command("npm", "create", "svelte@latest", projectName)
 	case "4":
+		cmd = exec.Command("mkdir", projectName)
+		cmd.Run()
 		cmd = exec.Command("npm", "create", "astro@latest")
 	case "5":
 		cmd = exec.Command("npm", "install", "-g", "@angular/cli")
