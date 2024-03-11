@@ -78,10 +78,10 @@ func main() {
 	tailwind = strings.TrimSpace(tailwind)
 
 	if tailwind == "y" {
-		cmd = exec.Command("cd", projectName)
-		err = cmd.Run()
+		os.Chdir(projectName)
 		cmd = exec.Command("npm", "install", "-D", "tailwindcss@latest", "postcss@latest", "autoprefixer@latest")
 		err = cmd.Run()
+		
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -91,7 +91,10 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+		os.Chdir("..")
 	}
 
 	fmt.Println("Setup complete!")
+	cmd = exec.Command("code", projectName)
+	err = cmd.Run()
 }
