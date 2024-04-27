@@ -3,7 +3,7 @@ name: aws pe upload
 on:
     push:
         branches:
-        - main
+        - go-go
 
 jobs:
     upload-main-exe:
