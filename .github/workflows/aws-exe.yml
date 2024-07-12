@@ -21,4 +21,4 @@ jobs:
             aws-region: ap-south-1
 
         - name: Upload-exe
-          run: aws s3 cp ./main.exe s3://go-go-cli/main.exe
+          run: aws s3 cp ./main.exe s3://go-go-cli-v2/main.exe
